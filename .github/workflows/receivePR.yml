@@ -15,12 +15,10 @@ jobs:
         with:
           node-version: 10
       - name: Build Markbind website
-        if: ${{ success() && github.event_name == 'pull_request' }}
         run: |
           npm install -g markbind-cli
           markbind build
       - name: Save PR number and HEAD commit
-        if: ${{ success() && github.event_name == 'pull_request' }}
         run: |
           mkdir -p ./pr
           echo ${{ github.event.number }} > ./pr/NUMBER

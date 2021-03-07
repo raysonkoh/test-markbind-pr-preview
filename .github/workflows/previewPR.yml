@@ -14,15 +14,13 @@ jobs:
     name: Deploying to surge
     steps:
       - uses: actions/checkout@v2
-      - name: Download artifact
+      - name: Download built MarkBind site artifacts
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: receivePR.yml
           run_id: ${{ github.event.workflow_run.id }}
           name: markbind-deployment
           path: .
-      - name: Display structure of downloaded files
-        run: ls -R
       - name: Extract PR number
         id: pr-number
         run: echo '::set-output name=ACTIONS_PR_NUMBER::'$(cat ./pr/NUMBER)
@@ -41,7 +39,7 @@ jobs:
           surge --project ./_site --domain ${{ steps.pr-url.outputs.ACTIONS_PREVIEW_URL }}
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-      - name: Find PR preview link comment
+      - name: Find existing PR preview link comment
         uses: peter-evans/find-comment@v1
         id: fc
         with:

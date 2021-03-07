@@ -32,7 +32,7 @@ jobs:
         id: pr-url
         run: |
           PR_URL="https://pr-${{ steps.pr-number.outputs.ACTIONS_PR_NUMBER }}-test-url-ray.surge.sh/"
-          echo '::set-output name=ACTIONS_PREVIEW_URL::$PR_URL'
+          echo '::set-output name=ACTIONS_PREVIEW_URL::'$PR_URL
       - name: Install surge and deploy PR to surge
         run: |
           npm i -g surge

@@ -9,7 +9,7 @@
 
 <div class="jumbotron jumbotron-fluid bg-primary text-white">
   <div class="container">
-    <h1 class="display-4 no-index">Updated Workflow Part 2: Landing Page Title</h1>
+    <h1 class="display-4 no-index">Updated Workflow Part 3: Landing Page Title</h1>
     <p class="lead">A tagline can go here</p>
   </div>
 </div>
